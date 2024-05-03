@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yazıları Sırayla Ekrana Yazdırma</title>
+<style>
+  #text {
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div id="text"></div>
+
+<script>
+  // Yazılacak metinler
+  var texts = ["Im yunus emre", "Im developer"];
+  
+  // Yazıları ekrana sırayla yazdırmak için fonksiyon
+  function typeText(index) {
+    if (index < texts.length) {
+      var textElement = document.getElementById("text");
+      textElement.innerHTML = texts[index];
+      
+      // Bir sonraki metni 1 saniye sonra yazdır
+      setTimeout(function() {
+        typeText(index + 1);
+      }, 1000);
+    }
+  }
+  
+  // İlk metni yazdırmak için çağır
+  typeText(0);
+</script>
+
+</body>
+</html>
